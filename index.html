@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Языковая школа</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="loadinfo.js"></script>
+</head>
+
+<body>
+    <!-- Шапка сайта -->
+    <header class="bg-primary text-white p-3 mb-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h3">Языковая школа</h1>
+            <nav>
+                <a href="#" class="text-white me-3">Курсы</a>
+                <a href="#" class="text-white me-3">О нас</a>
+                <a href="#contact" class="text-white me-3">Контакты</a>
+                <a href="account.html" class="text-white">Личный кабинет</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Область уведомлений -->
+    <div class="container mb-3">
+        <div class="alert alert-info" role="alert">
+            Добро пожаловать в нашу языковую школу!
+        </div>
+    </div>
+
+    <!-- Блок описания языковой школы -->
+    <section class="container mb-3">
+        <h2>О школе</h2>
+        <p>Наша миссия - помочь вам изучить выбранный язык и достичь ваших образовательных целей. Мы предлагаем качественные курсы для всех уровней подготовки.</p>
+    </section>
+
+    <!-- Преимущества изучения русского языка -->
+    <section class="container mb-3">
+        <h2>Преимущества изучения языков</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Культура</h3>
+                <p>Откройте для себя богатую культуру через язык.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Карьера</h3>
+                <p>Повышайте свои шансы на трудоустройство, изучая язык.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Путешествия</h3>
+                <p>Легче путешествуйте по странам.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Предлагаемые курсы -->
+    <section class="container mb-3">
+        <h2>Наши курсы</h2>
+        <div class="list-group" id="courses-list">
+            <!-- Курсы будут загружены сюда -->
+        </div>
+    </section>
+
+    <!-- Форма поиска -->
+    <section class="container mb-3">
+        <h2>Поиск курсов</h2>
+        <form>
+            <div class="mb-3">
+                <label for="search" class="form-label">Название курса</label>
+                <input type="text" id="search" class="form-control" placeholder="Введите название курса">
+            </div>
+            <button type="submit" class="btn btn-primary">Найти</button>
+        </form>
+    </section>
+
+    <!-- Список курсов -->
+    <nav class="container mb-3">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Предыдущая</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Следующая</a></li>
+        </ul>
+    </nav>
+
+    <!-- Списки репетиторов -->
+    <section class="container mb-3">
+        <h2>Наши преподаватели</h2>
+        <ul class="list-group" id="teachers-list">
+            <!-- Преподаватели будут загружены сюда -->
+        </ul>
+    </section>
+
+    <!-- Кнопка формы заказа -->
+    <section class="container mb-3">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#orderModal" aria-label="Записаться на занятие">Записаться на занятие</button>
+    </section>
+
+    <!-- Курсы окно -->
+    <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Запрос на занятие</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Ваше имя</label>
+                            <input type="text" id="name" class="form-control" placeholder="Введите ваше имя">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Ваш email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Введите ваш email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="course" class="form-label">Выберите курс</label>
+                            <select id="course" class="form-select">
+                                <option>Курс для начинающих</option>
+                                <option>Средний уровень</option>
+                                <option>Продвинутый уровень</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Поиск репетиторов -->
+    <section class="container mb-3">
+        <h2>Поиск репетиторов</h2>
+        <form>
+            <div class="mb-3">
+                <label for="qualification" class="form-label">Квалификация</label>
+                <select id="qualification" class="form-select">
+                    <option>Начальный уровень</option>
+                    <option>Средний уровень</option>
+                    <option>Продвинутый уровень</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="experience" class="form-label">Опыт (лет)</label>
+                <input type="number" id="experience" class="form-control" placeholder="Введите количество лет опыта">
+            </div>
+            <button type="submit" class="btn btn-primary">Найти</button>
+        </form>
+    </section>
+
+    <!-- Футер -->
+    <footer id="footer" class="footer bg-dark text-white py-3 text-center">
+        <p>Contact us: info@learnrussian.com</p>
+        <div class="social-icons">
+            <a href="https://t.me/your_telegram_link" target="_blank" class="text-white me-3">
+                <i class="fab fa-telegram-plane fa-2x"></i>
+            </a>
+            <a href="https://vk.com/your_vk_link" target="_blank" class="text-white">
+                <i class="fab fa-vk fa-2x"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>
