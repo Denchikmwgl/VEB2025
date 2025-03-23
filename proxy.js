@@ -5,13 +5,9 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
-// Разрешаем CORS для всех запросов
 app.use(cors());
-
-// Парсинг JSON-тела запросов
 app.use(express.json());
 
-// Массив для хранения записей
 let orders = [];
 
 // Прокси для запросов к API курсов
@@ -32,9 +28,6 @@ app.get('/api/courses', async(req, res) => {
     }
 });
 
-// API для работы с записями
-
-// Получить все записи
 app.get('/api/orders', (req, res) => {
     res.json(orders);
 });
@@ -42,7 +35,7 @@ app.get('/api/orders', (req, res) => {
 // Создать новую запись
 app.post('/api/orders', (req, res) => {
     const order = req.body;
-    order.id = orders.length + 1; // Генерация ID
+    order.id = orders.length + 1; // ID
     orders.push(order);
     res.json(order);
 });
@@ -72,7 +65,6 @@ app.delete('/api/orders/:id', (req, res) => {
     }
 });
 
-// Запуск сервера
 app.listen(PORT, () => {
     console.log(`Сервер запущен на http://localhost:${PORT}`);
 });

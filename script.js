@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(data => {
                 alert('Вы успешно записаны на курс!');
                 bootstrap.Modal.getInstance(document.getElementById('orderModal')).hide();
-                orderForm.reset(); // Очистка формы
+                orderForm.reset();
             })
             .catch(error => {
                 console.error('Ошибка:', error);

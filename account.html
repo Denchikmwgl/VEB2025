@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <!-- Шапка сайта -->
     <header class="bg-primary text-white p-3 mb-3">
         <div class="container d-flex justify-content-between align-items-center">
             <h1 class="h3">Личный кабинет</h1>
@@ -20,7 +19,6 @@
         </div>
     </header>
 
-    <!-- Таблица записей -->
     <section class="container mb-3">
         <h2>Ваши записи</h2>
         <table class="table table-striped">
@@ -34,13 +32,10 @@
                 </tr>
             </thead>
             <tbody id="orderTableBody">
-                <!-- Записи будут загружены сюда -->
             </tbody>
         </table>
     </section>
 
-    <!-- Модальные окна -->
-    <!-- Подробнее -->
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -49,13 +44,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
                 <div class="modal-body" id="detailsModalBody">
-                    <!-- Детали записи будут загружены сюда -->
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Изменить -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -96,7 +89,6 @@
         </div>
     </div>
 
-    <!-- Удалить -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -115,7 +107,6 @@
         </div>
     </div>
 
-    <!-- Подключение скриптов -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="account.js"></script>
 </body>
