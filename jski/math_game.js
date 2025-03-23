@@ -1,6 +1,3 @@
-// Математическая игра с поддержкой браузера и Node.js
-
-// Проверка среды выполнения
 const isNode = typeof process !== 'undefined' && process.release.name === 'node';
 let readline;
 let userInput = '';
@@ -24,18 +21,15 @@ function askQuestion(question) {
     });
 }
 
-// Генерация случайного числа
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Генерация случайного оператора
 function getRandomOperator(level) {
     const operators = level === 'начальный' ? ['+', '-', '*'] : ['+', '-', '*', '/', '>', '<', '==', '!='];
     return operators[getRandomNumber(0, operators.length - 1)];
 }
 
-// Генерация вопроса
 function generateQuestion(level) {
     const num1 = getRandomNumber(1, 20);
     const num2 = getRandomNumber(1, 20);
@@ -50,7 +44,6 @@ function generateQuestion(level) {
     return { question, answer };
 }
 
-// Основной процесс игры
 async function playGame() {
     const levels = ['начальный', 'средний', 'продвинутый'];
     let levelIndex = 0;
