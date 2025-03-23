@@ -5,23 +5,26 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
+// Разрешаем CORS для всех запросов
 app.use(cors());
 
+// Парсинг JSON-тела запросов
+app.use(express.json());
+
+// Массив для хранения записей
+let orders = [];
+
+// Прокси для запросов к API курсов
 app.get('/api/courses', async(req, res) => {
     try {
         const apiUrl = 'http://exam-api-courses.std-900.ist.mospolytech.ru/api/courses?api_key=b78c42e5-091f-4814-b2af-6bafd7670be9';
-        console.log('Запрос к API:', apiUrl);
-
         const response = await fetch(apiUrl);
-        console.log('Ответ от API:', response.status, response.statusText);
 
         if (!response.ok) {
             throw new Error(`Ошибка API: ${response.status} ${response.statusText}`);
         }
 
         const data = await response.json();
-        console.log('Данные от API:', data);
-
         res.json(data);
     } catch (error) {
         console.error('Ошибка прокси:', error);
@@ -29,6 +32,47 @@ app.get('/api/courses', async(req, res) => {
     }
 });
 
+// API для работы с записями
+
+// Получить все записи
+app.get('/api/orders', (req, res) => {
+    res.json(orders);
+});
+
+// Создать новую запись
+app.post('/api/orders', (req, res) => {
+    const order = req.body;
+    order.id = orders.length + 1; // Генерация ID
+    orders.push(order);
+    res.json(order);
+});
+
+// Обновить запись
+app.put('/api/orders/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const updatedOrder = req.body;
+    const index = orders.findIndex(order => order.id === id);
+    if (index !== -1) {
+        orders[index] = updatedOrder;
+        res.json(updatedOrder);
+    } else {
+        res.status(404).json({ error: 'Запись не найдена' });
+    }
+});
+
+// Удалить запись
+app.delete('/api/orders/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = orders.findIndex(order => order.id === id);
+    if (index !== -1) {
+        orders.splice(index, 1);
+        res.json({ success: true });
+    } else {
+        res.status(404).json({ error: 'Запись не найдена' });
+    }
+});
+
+// Запуск сервера
 app.listen(PORT, () => {
-    console.log(`Прокси-сервер запущен на http://localhost:${PORT}`);
+    console.log(`Сервер запущен на http://localhost:${PORT}`);
 });

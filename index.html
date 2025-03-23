@@ -106,28 +106,28 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="orderModalLabel">Запрос на занятие</h5>
+                    <h5 class="modal-title" id="orderModalLabel">Запись на курс</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="orderForm">
                         <div class="mb-3">
-                            <label for="name" class="form-label">Ваше имя</label>
-                            <input type="text" id="name" class="form-control" placeholder="Введите ваше имя">
+                            <label for="courseName" class="form-label">Название курса</label>
+                            <input type="text" class="form-control" id="courseName" readonly>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Ваш email</label>
-                            <input type="email" id="email" class="form-control" placeholder="Введите ваш email">
+                            <label for="userName" class="form-label">Ваше имя</label>
+                            <input type="text" class="form-control" id="userName" required>
                         </div>
                         <div class="mb-3">
-                            <label for="course" class="form-label">Выберите курс</label>
-                            <select id="course" class="form-select">
-                                <option>Курс для начинающих</option>
-                                <option>Средний уровень</option>
-                                <option>Продвинутый уровень</option>
-                            </select>
+                            <label for="userEmail" class="form-control">Ваш email</label>
+                            <input type="email" class="form-control" id="userEmail" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Отправить</button>
+                        <div class="mb-3">
+                            <label for="courseDate" class="form-label">Дата занятия</label>
+                            <input type="date" class="form-control" id="courseDate" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Записаться</button>
                     </form>
                 </div>
             </div>
